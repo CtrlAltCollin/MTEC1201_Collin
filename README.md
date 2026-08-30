@@ -1,7 +1,7 @@
 # MTEC1201_Collin
 
 ### About Me
-Im in my third semester Emerging Media Technology student at City Tech, Im working on a number of project across traditional art which includes painting, sculpting but does limted to traditional arts as im also working with Blendr and Unity for game developement, im working towards a creative career.
+Im in my third semester Emerging Media Technology student at City Tech, Im working on a number of project across traditional art which includes painting, sculpting but im exploring a few new projects with Blendr and Unity for game developement, im working towards a creative career.
 This repo will be where i post work and track assignments for MTEC1201.
 
 ### Interests
