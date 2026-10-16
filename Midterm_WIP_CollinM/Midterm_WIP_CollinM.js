@@ -71,6 +71,20 @@ function showPumpkin() { background("orange");
   // mouth changes depending on the current mood
   drawExpression(mood);}
 
+  // right eye
+triangle(550,160, 500,260, 600,260);
+
+// blink to cover eye for a second
+//if (frameCount % 180 < 6) {
+ // fill("orange");
+ // rect(90, 230, 120, 20);
+  //rect(490, 230, 120, 20);
+  //fill("black");
+//}
+
+// nose
+triangle(350,220, 320,280, 380,280);
+
 function drawPupils(eyex, eyey) {
   //pointing pupils towards the cursor
   let angle = atan2(mouseY - eyey, mouseX - eyex);
