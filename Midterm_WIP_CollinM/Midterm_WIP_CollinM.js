@@ -1,14 +1,17 @@
 /* Collin McQuade
 Title: Pumpkin Mood Swings
-Theme: Jack-o-lantern / Halloween series — Instructions: press SPACE to begin. Press 1 for a normal face, 2 for
+Theme: Jack-o-lantern / Halloween series — the pumpkin's face changes
+mood depending on what key you press, and its eyes follow your mouse.
+Instructions: press SPACE to begin. Press 1 for a normal face, 2 for
 an angry face, 3 for a surprised face. Press E to end, press R to
 restart from the beginning.
 */
 
 let mood = 1; // 1 = normal, 2 = angry, 3 = surprised
 let gamestate = "start"; // start, play, end
-//let blinkTimer = 0;
-//let eyesClosed = false;
+
+let mouthSize = 110; // controls how big the mouth is drawn
+let growingMouth = true; // tracks if the mouth is getting bigger or smaller
 
 function setup() {
   createCanvas(700, 500);
@@ -23,6 +26,7 @@ function draw() {
     showEndScreen();
   }
 }
+
 function showStartScreen() {
   background("black");
   fill("orange");
@@ -43,7 +47,8 @@ function showEndScreen() {
   text("Press R to restart", 350, 270);
 }
 
-function showPumpkin() { background("orange");
+function showPumpkin() {
+  background("orange");
   fill("black");
   noStroke();
 
@@ -63,58 +68,56 @@ function showPumpkin() { background("orange");
   // right eye
   triangle(550,160, 500,260, 600,260);
 
-  // pupils follow cursor
+  // pupils that follow the cursor
   drawPupils(150, 220);
   drawPupils(550, 220);
-//blinkTimer = blinkTimer + 1;
 
-//if (blinkTimer > 120) {
-  //eyesClosed = true;
-//}
-//if (blinkTimer > 130) {
-  //eyesClosed = false;
-  //blinkTimer = 0;
-//}
+  // eyebrows change position depending on mood
+  drawEyebrows();
 
-//if (eyesClosed) {
-  //fill("orange");
-  //rect(90, 230, 120, 20);
-  //rect(490, 230, 120, 20);
-//} else {
-  //drawPupils(150, 220);
-  //drawPupils(550, 220);
-//}
-
- // nose
+  // nose
   triangle(350,220, 320,280, 380,280);
 
   // mouth changes depending on the current mood
-  drawExpression(mood);}
+  drawExpression(mood);
 
-  // right eye
-triangle(550,160, 500,260, 600,260);
-
-// blink to cover eye for a second
-//if (frameCount % 180 < 6) {
- // fill("orange");
- // rect(90, 230, 120, 20);
-  //rect(490, 230, 120, 20);
-  //fill("black");
-//}
-
-// nose
-triangle(350,220, 320,280, 380,280);
+  // on-screen instructions while the pumpkin is active
+  fill("black");
+  textAlign(CENTER, CENTER);
+  textSize(14);
+  text("1: Normal   2: Angry   3: Surprised   E: End", 350, 460);
+}
 
 function drawPupils(eyex, eyey) {
-  //pointing pupils towards the cursor
-  // eye-tracking technique: pointing a shape at the cursor using atan2 kinda hard
-  let angle = atan2(mouseY - eyey, mouseX - eyex);
-  let pupilX = eyex + cos(angle) * 8;
-  let pupilY = eyey + sin(angle) * 8;
+  // direction from the eye to the mouse
+  let dx = mouseX - eyex;
+  let dy = mouseY - eyey;
+
+  // shrink that distance down so the pupil only shifts a little
+  let pupilX = eyex + dx / 15;
+  let pupilY = eyey + dy / 15;
+
   fill("white");
   ellipse(pupilX, pupilY, 14, 14);
   fill("black");
   ellipse(pupilX, pupilY, 6, 6);
+}
+
+function drawEyebrows() {
+  fill("black");
+  if (mood === 1) {
+    // normal: resting position
+    rect(100, 130, 100, 15);
+    rect(500, 130, 100, 15);
+  } else if (mood === 2) {
+    // angry: pulled down low, furrowed
+    rect(100, 150, 100, 15);
+    rect(500, 150, 100, 15);
+  } else {
+    // surprised: raised up high
+    rect(100, 100, 100, 15);
+    rect(500, 100, 100, 15);
+  }
 }
 
 function keyPressed() {
@@ -123,28 +126,41 @@ function keyPressed() {
   } else if (gamestate === "play") {
     if (key === "1") {
       mood = 1;
-    } else if (key === '2') {
+    } else if (key === "2") {
       mood = 2;
-    } else if (key === '3') {
+    } else if (key === "3") {
       mood = 3;
-    } else if (key === 'e' || key === 'E') {
+    } else if (key === "e" || key === "E") {
       gamestate = "end";
     }
-  }else if (gamestate === "end" && (key === 'r' || key === 'R')) {
+  } else if (gamestate === "end" && (key === "r" || key === "R")) {
     resetSketch();
   }
 }
+
 function resetSketch() {
   mood = 1;
   gamestate = "start";
+  mouthSize = 110;
+  growingMouth = true;
 }
 
 function drawExpression(currentMood) {
   if (currentMood === 1) {
-    // normal mouth: red with sharp white teeth
+    // normal mouth: red with sharp white teeth, slowly pulsing size
     fill("red");
-    let mouthPulse = 110 + sin(frameCount * 0.1) * 10;
-    ellipse(350, 360, 420, mouthPulse);
+    if (growingMouth) {
+      mouthSize = mouthSize + 1;
+      if (mouthSize > 120) {
+        growingMouth = false;
+      }
+    } else {
+      mouthSize = mouthSize - 1;
+      if (mouthSize < 100) {
+        growingMouth = true;
+      }
+    }
+    ellipse(350, 360, 420, mouthSize);
     fill("white");
     triangle(180,400, 205,320, 230,400);
     triangle(260,400, 285,320, 310,400);
