@@ -66,6 +66,24 @@ function showPumpkin() { background("orange");
   // pupils follow cursor
   drawPupils(150, 220);
   drawPupils(550, 220);
+//blinkTimer = blinkTimer + 1;
+
+//if (blinkTimer > 120) {
+  //eyesClosed = true;
+//}
+//if (blinkTimer > 130) {
+  //eyesClosed = false;
+  //blinkTimer = 0;
+//}
+
+//if (eyesClosed) {
+  //fill("orange");
+  //rect(90, 230, 120, 20);
+  //rect(490, 230, 120, 20);
+//} else {
+  //drawPupils(150, 220);
+  //drawPupils(550, 220);
+//}
 
  // nose
   triangle(350,220, 320,280, 380,280);
@@ -89,6 +107,7 @@ triangle(350,220, 320,280, 380,280);
 
 function drawPupils(eyex, eyey) {
   //pointing pupils towards the cursor
+  // eye-tracking technique: pointing a shape at the cursor using atan2 kinda hard
   let angle = atan2(mouseY - eyey, mouseX - eyex);
   let pupilX = eyex + cos(angle) * 8;
   let pupilY = eyey + sin(angle) * 8;
