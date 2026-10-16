@@ -7,6 +7,8 @@ restart from the beginning.
 
 let mood = 1; // 1 = normal, 2 = angry, 3 = surprised
 let gamestate = "start"; // start, play, end
+//let blinkTimer = 0;
+//let eyesClosed = false;
 
 function setup() {
   createCanvas(700, 500);
