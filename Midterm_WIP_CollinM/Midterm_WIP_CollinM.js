@@ -120,22 +120,20 @@ function drawEyebrows() {
   }
 }
 
-function keyPressed() {
-  if (gamestate === "start" && key === " ") {
-    gamestate = "play";
-  } else if (gamestate === "play") {
-    if (key === "1") {
-      mood = 1;
-    } else if (key === "2") {
-      mood = 2;
-    } else if (key === "3") {
-      mood = 3;
-    } else if (key === "e" || key === "E") {
-      gamestate = "end";
-    }
-  } else if (gamestate === "end" && (key === "r" || key === "R")) {
-    resetSketch();
-  }
+function keyPressed () {
+if (gamestate ==="start" && key === " ") {
+gamestate = "play";
+} else if (gamestate === "play" && key === "1") {
+mood = 1;
+}else if (gamestate === "play" && key === "2") {
+mood = 2;
+}else if (gamestate === "play" && key === "3") {
+mood = 3;
+}else if (gamestate === "play" && (key === "e" || key === "E")) {
+gamestate = "end";
+}else if (gamestate === "end" && (key === "r" || key === "R")) {
+resetSketch();
+}
 }
 
 function resetSketch() {
