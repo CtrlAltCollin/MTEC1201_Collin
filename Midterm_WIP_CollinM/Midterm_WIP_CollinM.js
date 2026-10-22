@@ -15,6 +15,7 @@ let growingMouth = true; // tracks if the mouth is getting bigger or smaller
 
 function setup() {
   createCanvas(700, 500);
+  textFont("Impact");
 }
 
 function draw() {
@@ -85,7 +86,7 @@ function showPumpkin() {
   fill("black");
   textAlign(CENTER, CENTER);
   textSize(14);
-  text("1: Normal   2: Angry   3: Surprised   E: End", 350, 460);
+  text("1: Normal   2: Angry   3: Surprised   E: End", 350, 60);
 }
 
 function drawPupils(eyex, eyey) {
