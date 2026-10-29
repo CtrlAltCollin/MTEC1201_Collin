@@ -43,7 +43,7 @@ function showEndScreen() {
   fill("orange");
   textAlign(CENTER, CENTER);
   textSize(32);
-  text("Game Over", 350, 220);
+  text("The End", 350, 220);
   textSize(16);
   text("Press R to restart", 350, 270);
 }
@@ -86,7 +86,7 @@ function showPumpkin() {
   fill("black");
   textAlign(CENTER, CENTER);
   textSize(14);
-  text("1: Normal   2: Angry   3: Surprised   E: End", 350, 60);
+  text("1 = Normal   2 = Angry   3 = Surprised   E = End", 350, 60);
 }
 
 function drawPupils(eyex, eyey) {
@@ -121,20 +121,26 @@ function drawEyebrows() {
   }
 }
 
-function keyPressed () {
-if (gamestate ==="start" && key === " ") {
-gamestate = "play";
-} else if (gamestate === "play" && key === "1") {
-mood = 1;
-}else if (gamestate === "play" && key === "2") {
-mood = 2;
-}else if (gamestate === "play" && key === "3") {
-mood = 3;
-}else if (gamestate === "play" && (key === "e" || key === "E")) {
-gamestate = "end";
-}else if (gamestate === "end" && (key === "r" || key === "R")) {
-resetSketch();
-}
+function keyPressed() {
+  if (gamestate === "start") {
+    if (key === " ") {
+      gamestate = "play";
+    }
+  } else if (gamestate === "play") {
+    if (key === "1") {
+      mood = 1;
+    } else if (key === "2") {
+      mood = 2;
+    } else if (key === "3") {
+      mood = 3;
+    } else if (key === "e" || key === "E") {
+      gamestate = "end";
+    }
+  } else if (gamestate === "end") {
+    if (key === "r" || key === "R") {
+      resetSketch();
+    }
+  }
 }
 
 function resetSketch() {
