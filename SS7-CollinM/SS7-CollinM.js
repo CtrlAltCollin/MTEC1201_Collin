@@ -13,10 +13,36 @@ let camY = 0;
 let spots = [];
 
 function setup() {
-  createCanvas(700, 500);
+  createCanvas(windowWidth, windowHeight);
   spots.push(new PortfolioSpot(300, 300, 50, 50));
   spots.push(new PortfolioSpot(600, 150, 80, 80));
   spots.push(new PortfolioSpot(100, 450, 60, 60));
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+
+function drawGrid() {
+  stroke(150);
+  let startX = -camX;
+  let endX = width - camX;
+  let startY = -camY;
+  let endY = height - camY;
+  for (let x = startX; x < endX; x += 50) {
+    for (let y = startY; y < endY; y += 50) {
+      //make dots near the center of the screen bigger than dots farther away,
+      // creating a bulging, sphere-like illusion instead of a flat grid
+      let screenX = x + camX;
+      let screenY = y + camY;
+      let d = dist(screenX, screenY, width / 2, height / 2);
+      let maxDist = dist(0, 0, width / 2, height / 2);
+      let dotSize = map(d, 0, maxDist, 8, 1);
+      strokeWeight(dotSize);
+      point(x, y);
+    }
+  }
 }
 
 function mouseDragged() {
@@ -29,6 +55,7 @@ function draw() {
   background(220);
   // move the camera to the current position
   translate(camX, camY);
+  drawGrid();
   for (let spot of spots) {
     if (spot.isHovered()) {
       fill(255, 0, 0);
