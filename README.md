@@ -1,13 +1,25 @@
 # MTEC1201_Collin
 
 ### About Me
-Im in my third semester Emerging Media Technology student at City Tech, Im working on a number of project across traditional art which includes painting, sculpting but im exploring a few new projects with Blendr and Unity for game developement, im working towards a creative career.
-This repo will be where i post work and track assignments for MTEC1201.
+I'm in my third semester as an Emerging Media Technology student at City Tech. I'm working on a number of projects across traditional art, which includes painting and sculpting, but I'm also exploring a few new areas with Blender and Unity for game development. I'm working towards a creative career.
+This repo will be where I post work and track assignments for MTEC1201.
+
+### Projects
+- [Short Study 1](./SS1-CollinM): done
+- [Short Study 2](./SS2-CollinM): done
+- Short Study 3: upcoming
+- Short Study 4: folded into the Midterm Project
+- [Midterm Project (Final)](./Midterm_Final_CollinM): done
+- [Midterm Project (Revised)](./Midterm_Revised_CollinM): done, post-critique revision
+- Short Study 5 (Responsive Patterns): upcoming
+- Short Study 6 (Arrays): upcoming
+- Short Study 7 (Object Oriented Programming): in progress
+- Final Project: proposal due 11/20
 
 ### Interests
-- Traditional Arts
-- 3D/ Asset work in blendr 
-- A place where hannd-made and code-base intersect and where they also cant yet.
+- Traditional arts
+- 3D/asset work in Blender
+- A place where hand-made and code-based work intersect, and where they still can't.
 
 ### Curiosities this semester
-Openminded, hoping to learn in ways that are useful to me and that i can carry into the future.
+Open-minded, hoping to learn in ways that are useful to me and that I can carry into the future.
