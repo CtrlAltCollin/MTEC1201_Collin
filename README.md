@@ -7,14 +7,15 @@ This repo will be where I post work and track assignments for MTEC1201.
 ### Projects
 - [Short Study 1](./SS1-CollinM): done
 - [Short Study 2](./SS2-CollinM): done
-- Short Study 3: upcoming
-- Short Study 4: folded into the Midterm Project
+- Short Study 3 (Creating Uncertainty): in progress
+- [Short Study 4](./SS4-CollinM): done, later expanded into the Midterm Project
+- [Midterm Project (WIP)](./Midterm_WIP_CollinM): done
 - [Midterm Project (Final)](./Midterm_Final_CollinM): done
 - [Midterm Project (Revised)](./Midterm_Revised_CollinM): done, post-critique revision
-- Short Study 5 (Responsive Patterns): upcoming
-- Short Study 6 (Arrays): upcoming
-- Short Study 7 (Object Oriented Programming): in progress
-- Final Project: proposal due 11/20
+- Short Study 5 (Responsive Patterns): in progress
+- Short Study 6 (Arrays): in progress
+- [Short Study 7](./SS7-CollinM) (Object Oriented Programming): done
+- [Final Project Proposal](./FinalProject_Proposal): submitted 11/20
 
 ### Interests
 - Traditional arts

@@ -1,5 +1,7 @@
 // Collin McQuade
 // Short Study 7: Object Oriented Programming
+// Title: Portfolio Map
+// Building from: no prior short study, this is new groundwork for my final project
 // Click and drag to pan around the canvas.
 // for a pannable-world camera system, which this project will expand on.
 //
